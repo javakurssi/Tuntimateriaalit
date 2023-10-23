@@ -1,0 +1,15 @@
+{
+    "tests": [
+      {
+        "name": "Run tests",
+        "setup": "",
+        "run": "./gradlew test",
+        "input": "",
+        "output": "",
+        "comparison": "exact",
+        "timeout": 1,
+        "points": 100
+      }
+    ]
+  }
+  
