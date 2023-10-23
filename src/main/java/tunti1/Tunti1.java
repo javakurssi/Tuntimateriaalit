@@ -14,7 +14,6 @@ public class Tunti1 {
         double pi = 3.14;
         String message = "Hello, world!";
         boolean isJavaFun = true;
-        Integer myNumber = new Integer(number)
 
         // Esimerkkejä kontrollirakenteista
         if (isJavaFun) {
@@ -42,7 +41,7 @@ public class Tunti1 {
 
         // Esimerkkejä silmukoista
         int[] numbersArray = { 1, 2, 3, 4, 5 };
-        for (int i = 0; i < numbersArray.length : i++) {
+        for (int i = 0; i < numbersArray.length; i++) {
             System.out.print(numbersArray[i] + " ");
         }
 
@@ -94,12 +93,9 @@ public class Tunti1 {
         private String name;
         private int weight;
 
-        private int privateWeight;
-
         public Animal(String name, int weight) {
             this.name = name;
             this.weight = weight;
-            calculateMyNumber()
         }
 
         public String getName() {
@@ -108,10 +104,6 @@ public class Tunti1 {
 
         public int getWeight() {
             return weight;
-        }
-
-        private void calculateMyNumber(){
-            this.privateWeight = weight * 10
         }
     }
 }
