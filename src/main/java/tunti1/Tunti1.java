@@ -1,8 +1,5 @@
 package tunti1;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,7 +86,7 @@ public class Tunti1 {
     }
 
     // Esimerkkejä olio-ohjelmoinnin perusteista
-    class Animal {
+    static class Animal {
         private String name;
         private int weight;
 
