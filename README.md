@@ -2,14 +2,20 @@
 
 Tänne julkaistaan Ohjelmointi 2 -kurssin tunnilla käytettyjä esimerkkejä.
 
-Tunti 1:
+Tunti 1, Kertaus:
 
-- [Tunti1, kertaus](./src/main/java/tunti1/Tunti1.java)
+- [Tunti1](./src/main/java/tunti1/Tunti1.java)
 
-Tunti 2:
+Tunti 2, Map:
 
-- [Tunti2, map](./src/main/java/tunti2/Tunti2.java)
+- [Tunti2, Map](./src/main/java/tunti2/Tunti2.java)
 - [Tunti2, Hashmap-esimerkki isolla datamäärällä](./src/main/java/tunti2/IsoDataMaara.java)
+
+Tunti 3, JUnit:
+
+- [Tunti3, Testattavat luokat](./src/main/java/tunti3)
+- [Tunti3, Testit](./src/test/java/tunti3)
+
 
 ## Lisenssi ja tekijät
 
