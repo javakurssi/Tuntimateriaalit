@@ -29,13 +29,13 @@ class ShoppingCartTestWithMockito {
         cart.addItem("Phone", 500.0);
 
         // Mock the behavior of the discount service
-        when(discountService.calculateDiscount(anyDouble())).thenReturn(50.0);
+        when(discountService.calculateDiscount(anyDouble())).thenReturn(150.0);
 
         // Act
         double total = cart.calculateTotal();
 
         // Assert
-        assertEquals(1450, total, 0.001);
+        assertEquals(1350, total, 0.001);
 
         // Verify that the discount service was called with the correct parameters
         verify(discountService, times(1)).calculateDiscount(1500.0);

@@ -21,21 +21,39 @@ class CalculatorTest {
     @Test
     void testAddition() {
         assertEquals(5, calculator.add(2, 3));
+
+        assertEquals(-1, calculator.add(-2, 1));
+        assertEquals(0, calculator.add(0, 0));
+    }
+
+    @Test
+    void testAdditionWithCurrency() {
+        assertEquals("5 €", calculator.addWithCurrency(2,3));
     }
 
     @Test
     void testSubtraction() {
-        assertEquals(2, calculator.subtract(5, 3));
+        assertEquals(1, calculator.subtract(4, 3));
+        assertEquals(5, calculator.subtract(10, 5));
+        assertEquals(-2, calculator.subtract(1, 3));
     }
 
     @Test
     void testMultiplication() {
-        assertEquals(15, calculator.multiply(3, 5));
+        assertEquals(6, calculator.multiply(2, 3));
+        assertEquals(-15, calculator.multiply(3, -5));
+        assertEquals(0, calculator.multiply(0, 10));
     }
 
     @Test
     void testDivision() {
-        assertEquals(2, calculator.divide(6, 3));
+    	assertEquals(3, calculator.divide(6, 2), 0.001);
+        assertEquals(-2.0, calculator.divide(10, -5), 0.001);
+    }
+    
+    @Test
+    void testDivisionWhenResultIsDouble() {
+    	assertEquals(2.5, calculator.divide(5, 2), 0.001);
     }
 
     @Test
@@ -44,6 +62,14 @@ class CalculatorTest {
         assertThrows(IllegalArgumentException.class, () -> calculator.divide(6, 0));
     }
     
+    @Test
+    void testSquaring() {
+        assertEquals(4, calculator.square(2));
+        assertEquals(4, calculator.square(-2));
+        assertEquals(0, calculator.square(0));
+    }
+    
+    //Examples on different asserting methods
     @Test
     void testAdditionToShowAllAssertions() {
     	

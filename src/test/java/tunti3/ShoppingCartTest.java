@@ -32,7 +32,7 @@ class ShoppingCartTest {
 
         // Assert cart total x 10% discount is correct 
         // The third param 0.001 is the precision required in equality check.
-        assertEquals(1450, total, 0.001);
+        assertEquals(1350, total, 0.001);
     }
 }
 
