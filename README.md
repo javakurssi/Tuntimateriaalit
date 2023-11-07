@@ -16,6 +16,10 @@ Tunti 3, JUnit:
 - [Tunti3, Testattavat luokat](./src/main/java/tunti3)
 - [Tunti3, Testit](./src/test/java/tunti3)
 
+Tunti 4, Oliomallintaminen, perintä ja rajapinnat:
+
+- [Tunti4, Esimerkit](./src/main/java/tunti4)
+
 
 ## Lisenssi ja tekijät
 
