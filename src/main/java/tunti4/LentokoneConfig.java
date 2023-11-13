@@ -25,7 +25,8 @@ public class LentokoneConfig {
 }
 
 class Lentokone {
-    private Moottori moottori; // Pelkkä rajapinta riittää Lentokoneelle, sen ei kuulu tietää toteutusyksityiskohtia.
+
+	private Moottori moottori; // Pelkkä rajapinta riittää Lentokoneelle, sen ei kuulu tietää toteutusyksityiskohtia.
 
     // Setter metodilla voidaan asettaa haluttu moottori lentokoneelle
     public void setMoottori(Moottori moottori) {

@@ -1,13 +1,13 @@
 package tunti4;
 
 /**
- * Tämä esimerkki havainnollistaa olio-ohjelmoinnin käsitteitä Abstrakti -luokka ja super-avainsana.
+ * Tämä esimerkki havainnollistaa olio-ohjelmoinnin käsitteitä Abstrakti-luokka ja super-avainsana.
  */
 public class MuotoEsimerkki {
 	public static void main(String[] args) {
 		Muoto ympyra = new Ympyra(5.0);
 		Muoto suorakulmio = new Suorakulmio(4.0, 6.0);
-				
+		
 		System.out.println("Ympyrän pinta-ala: " + ympyra.laskePintaAla());
 		System.out.println("Suorakulmion pinta-ala: " + suorakulmio.laskePintaAla());
 
@@ -17,7 +17,7 @@ public class MuotoEsimerkki {
 }
 
 interface Muoto {
-	double laskePintaAla();
+	public double laskePintaAla();
 }
 
 // Abstrakti luokka, joka toteuttaa Muoto-rajapinnan
@@ -31,7 +31,7 @@ abstract class AbstraktiMuoto implements Muoto {
 	protected void kasvataLaskuria() {
 		laskuri++;
 	}
-
+	
 	public double laskePintaAla() {
 		kasvataLaskuria();
 		return Math.PI; // Oletustoteutus abstraktissa luokassa
