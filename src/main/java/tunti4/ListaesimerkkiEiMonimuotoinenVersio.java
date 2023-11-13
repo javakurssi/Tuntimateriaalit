@@ -18,7 +18,6 @@ public class ListaesimerkkiEiMonimuotoinenVersio {
         numeroLista.add(3);
         numeroLista.add(1);
         System.out.println(laskeEsiintymat(numeroLista));
-
     }
 
     /**

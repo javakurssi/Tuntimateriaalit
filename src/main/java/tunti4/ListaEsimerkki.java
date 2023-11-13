@@ -34,9 +34,9 @@ public class ListaEsimerkki {
         omaLista.add(new OmaObjekti(4, "Volvo"));
         System.out.println(laskeEsiintymat(omaLista));
         
+        // Bonuksena vielä sorttaus Comparable rajapinnalla
         Collections.sort(omaLista);
         System.out.println("Aakkosjärjestetty autolista:  "+omaLista);
-
 
     }
 

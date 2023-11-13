@@ -18,9 +18,13 @@ public class Oliolaskuri {
     }
 }
 
+interface Operaatio {
+    public int laske();
+}
+
 class Sum implements Operaatio {
 
-    Operaatio x1, x2;
+    private Operaatio x1, x2;
 
     public Sum(Operaatio x1, Operaatio x2) {
         this.x1 = x1;
@@ -36,7 +40,7 @@ class Sum implements Operaatio {
 
 class Mul implements Operaatio {
 
-    Operaatio x1, x2;
+	private Operaatio x1, x2;
 
     public Mul(Operaatio x1, Operaatio x2) {
         this.x1 = x1;
@@ -52,7 +56,7 @@ class Mul implements Operaatio {
 
 class Id implements Operaatio {
 
-    int x1;
+	private int x1;
 
     public Id(int x1) {
         this.x1 = x1;
@@ -63,8 +67,4 @@ class Id implements Operaatio {
         return x1;
     }
 
-}
-
-interface Operaatio {
-    public int laske();
 }
