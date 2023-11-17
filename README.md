@@ -20,6 +20,10 @@ Tunti 4, Oliomallintaminen, perintä ja rajapinnat:
 
 - [Tunti4, Esimerkit](./src/main/java/tunti4)
 
+Tunti 5, Streamit, lambdat ja optionalit:
+
+- [Tunti5, Esimerkit](./src/main/java/tunti5)
+
 
 ## Lisenssi ja tekijät
 
