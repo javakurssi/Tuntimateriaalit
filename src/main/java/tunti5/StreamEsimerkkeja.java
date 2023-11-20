@@ -34,9 +34,13 @@ public class StreamEsimerkkeja {
         double keskiIka = getKeskiIka(henkilot, 18);
         System.out.println("Henkilöiden keski-ikä: " + keskiIka);
         
-        //Esimerkki 4: 
+        // Esimerkki 4: 
         Map<String, Long> stringCountMap = laskeEsiintymat(automerkit);
         stringCountMap.forEach((key, value) -> System.out.println(key + ": " + value));
+        
+        // Esimerkki 5:
+        String htmlLista = luoHtmlLista(henkilot);
+        System.out.println("HTML Lista:\n" + htmlLista);
     }
 
     // Esimerkki 1: Käytetään Streameja ja Lambdoja merkkijonojen pituuden selvittämiseen
@@ -75,6 +79,13 @@ public class StreamEsimerkkeja {
         Map<T, Long> esiintymat = list.stream()
                 .collect(groupingBy(s -> s, counting())); // Käytetään groupingBy-collectoria ja counting-collectoria.
         return esiintymat;
+    }
+    
+    // Esimerkki 5: Luodaan henkilölistasta html-renderöitävä versio, tämä on helppoa mappauksen avulla ja tyypillistä web-ohjelmoinnissa.
+    public static String luoHtmlLista(List<Henkilo> henkilot) {
+        return henkilot.stream()
+                .map(henkilo -> "<li>Nimi: " + henkilo.getNimi() + ", Ikä: " + henkilo.getIka() + "</li>")
+                .collect(Collectors.joining("\n", "<ul>", "</ul>")); // Collectorina merkkijonolle Collectors.joining-apuri
     }
 
 }
