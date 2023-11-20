@@ -52,17 +52,16 @@ public class StreamEsimerkkeja {
     
     // Esimerkki 2: Etsi henkilöä nimellä. Tulos on Optional<Henkilo>, koska henkilöä ei välttämättä löydy.
     public static Optional<Henkilo> findByNimi(List<Henkilo> henkilot, String nimi) {
-        for (Henkilo henkilo : henkilot) {
+        /*for (Henkilo henkilo : henkilot) {
             if (henkilo.getNimi().equals(nimi)) {
                 return Optional.of(henkilo); // Löytyi, kääritään optionaliin.
             }
         }
-        return Optional.empty(); // Ei löytynyt, palautetaan tyhjä Optional
+        return Optional.empty();*/ // Ei löytynyt, palautetaan tyhjä Optional
    
-    /* Tämä toimisi myös:
-    return henkilot.stream()
-            .filter(henkilo -> henkilo.getNimi().equalsIgnoreCase(name))
-            .findFirst();*/
+	    return henkilot.stream()
+	            .filter(henkilo -> henkilo.getNimi().equalsIgnoreCase(nimi))
+	            .findFirst();
     }
 
     // Esimerkki 3: Käytetään Streameja, Lambdoja ja Optional-luokkaa henkilöiden keski-iän laskemiseen.

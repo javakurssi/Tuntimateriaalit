@@ -3,6 +3,7 @@ package tunti5;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import tunti5.apuluokat.Kaupunki;
 
@@ -28,7 +29,7 @@ public class PerusFunktionaalisenEsimerkit {
         // Esimerkki 3. Käytetään Streamia ja lambdalauseketta jokaisen numeron neliöimiseen
         List<Integer> nelioitytNumerot = numerot.stream()
                 .map(n -> n * n)
-                .collect(Collectors.toList());
+                .toList();
         System.out.println("Neliöidyt numerot: " + nelioitytNumerot);
 
         // Esimerkki 4. Käytetään Streamia ja lambdalauseketta suurimman numeron löytämiseen
@@ -40,11 +41,16 @@ public class PerusFunktionaalisenEsimerkit {
         // Esimerkki 5. Annetaan lambda-funktio parametriksi toiselle funktiolle
         //(Tässä tapauksessa funktio tulostaa numerolistan arvojen neliöitä)
         consumeWithFunction(numerot, n -> System.out.println("Neliö: " + (n * n)));
-        
+                
         // Lisäesimerkki 6. Käytetään Streamia ja lambdalauseketta summan laskemiseen
         int summa = numerot.stream()
                 .reduce(0, Integer::sum); // Reducer on erityinen funktio, joka kerryttää streamista lopulta yhden arvon.
         System.out.println("Numeroiden summa: " + summa);
+    }
+    
+    // Esimerkki funktiosta, joka ottaa toisen funktion parametrina
+    private static void consumeWithFunction(List<Integer> numbers, Consumer<Integer> consumerFunction) {
+        numbers.forEach(consumerFunction); // Tässä listasta ei tarvitse luoda streamia.
     }
     
     private static int laskeKaupunkienAsukasluvutForLoop(List<Kaupunki> kaupungit) {
@@ -63,10 +69,5 @@ public class PerusFunktionaalisenEsimerkit {
                 .filter(kaupunki -> kaupunki.getAsukasluku() > 100_000)
                 .mapToInt(Kaupunki::getAsukasluku)
                 .sum();
-    }
-    
-    // Esimerkki funktiosta, joka ottaa toisen funktion parametrina
-    private static void consumeWithFunction(List<Integer> numbers, Consumer<Integer> consumerFunction) {
-        numbers.forEach(consumerFunction); // Tässä listasta ei tarvitse luoda streamia.
     }
 }
