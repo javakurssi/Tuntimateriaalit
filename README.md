@@ -24,6 +24,10 @@ Tunti 5, Streamit, lambdat ja optionalit:
 
 - [Tunti5, Esimerkit](./src/main/java/tunti5)
 
+Tunti 6, Tietokantayhteys javalla (JDBC):
+
+- [Tunti6, Esimerkit](./src/main/java/tunti6)
+
 
 ## Lisenssi ja tekijät
 
