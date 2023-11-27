@@ -2,6 +2,7 @@ package tunti6;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,6 +49,9 @@ public class HenkiloDAO {
         System.out.println("Kaikki henkilöt poiston jälkeen:");
         henkiloDAO.haeKaikkiHenkilot().forEach(System.out::println);
 
+        // Poistetaan kaikki henkilöt lopuksi
+        henkiloDAO.poistaKaikkiHenkilot();
+        
         // Sulje yhteys tietokantaan
         henkiloDAO.sulje();
     }
@@ -55,6 +59,8 @@ public class HenkiloDAO {
     public HenkiloDAO() {
         // Alusta yhteys. Tämä tulisi tehdä ihanteellisesti erillisessä metodissa tai yhteysaltaassa.
         String url = "jdbc:sqlite:src/main/java/tunti6/data/henkilokanta.sqlite"; //SQLLite luo tiedostokannan automaattisesti, tiedostokansio pitää olla olemassa ja kirjoitusoikeudet sinne annettu.
+        
+        //String mySqlURL = "jdbc:mysql://localhost:3306/my_database?user=myUser&password=myPassword";
         
         try {
             yhteys = DriverManager.getConnection(url);
@@ -67,27 +73,34 @@ public class HenkiloDAO {
     private void luoTaulu() throws SQLException {
         String sql = "CREATE TABLE IF NOT EXISTS henkilot (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "nimi TEXT NOT NULL," +
+                "nimi TEXT NOT NULL UNIQUE," +
                 "ika INTEGER NOT NULL)";
+        
+        /*String mySsql = "CREATE TABLE IF NOT EXISTS henkilot ("
+                + "id INT AUTO_INCREMENT PRIMARY KEY, "
+                + "nimi VARCHAR(255) NOT NULL, "
+                + "ika INT NOT NULL)";*/
         try (Statement lause = yhteys.createStatement()) {
             lause.execute(sql);
         }
     }
 
-    public void lisaaHenkilo(Henkilo henkilo) {
+    public int lisaaHenkilo(Henkilo henkilo) {
         String sql = "INSERT INTO henkilot (nimi, ika) VALUES (?, ?)";
         // Käytetään prepared statementtia, joka estää myös SQL-injektiot.
         try (PreparedStatement valmisteltuLause = yhteys.prepareStatement(sql)) {
             valmisteltuLause.setString(1, henkilo.getNimi());
             valmisteltuLause.setInt(2, henkilo.getIka());
-            valmisteltuLause.executeUpdate();
+            int rowCount = valmisteltuLause.executeUpdate();
+            return rowCount;
         } catch (SQLException e) {
             e.printStackTrace();
+            return -1;
         }
     }
 
     public List<Henkilo> haeKaikkiHenkilot() {
-        List<Henkilo> henkilot = new ArrayList<>();
+        List<Henkilo> henkilot = new LinkedList<>();
         String sql = "SELECT * FROM henkilot";
         try (Statement lause = yhteys.createStatement();
              ResultSet tulokset = lause.executeQuery(sql)) {
@@ -138,6 +151,16 @@ public class HenkiloDAO {
         String sql = "DELETE FROM henkilot WHERE id = ?";
         try (PreparedStatement valmisteltuLause = yhteys.prepareStatement(sql)) {
             valmisteltuLause.setInt(1, id);
+            valmisteltuLause.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void poistaKaikkiHenkilot() {
+        String sql = "DELETE FROM henkilot";
+        
+        try (PreparedStatement valmisteltuLause = yhteys.prepareStatement(sql)) {
             valmisteltuLause.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
