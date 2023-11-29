@@ -28,6 +28,11 @@ Tunti 6, Tietokantayhteys javalla (JDBC):
 
 - [Tunti6, Esimerkit](./src/main/java/tunti6)
 
+Tunti 7, Tietorakenteet ja Algoritmit:
+
+- [Tunti7, Wordplay-exercise](https://github.com/ohjelmointi2/wordplay-exercise/)
+
+
 
 ## Lisenssi ja tekijät
 
