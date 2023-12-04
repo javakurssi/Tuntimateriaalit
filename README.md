@@ -30,6 +30,8 @@ Tunti 6, Tietokantayhteys javalla (JDBC):
 
 Tunti 7, Tietorakenteet ja Algoritmit:
 
+- [Tunti7, Bubble sort](./src/main/java/tunti7/BubbleSort.java)
+
 - [Tunti7, Wordplay-exercise](https://github.com/ohjelmointi2/wordplay-exercise/)
 
 
