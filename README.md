@@ -34,6 +34,12 @@ Tunti 7, Tietorakenteet ja Algoritmit:
 
 - [Tunti7, Wordplay-exercise](https://github.com/ohjelmointi2/wordplay-exercise/)
 
+Tunti 8, Säikeet ja rekursio:
+
+- [Tunti8, Säikeet](./src/main/java/tunti8/thread)
+
+- [Tunti8, Rekursio](./src/main/java/tunti8/rekursio/RekursioEsimerkki.java)
+
 
 
 ## Lisenssi ja tekijät
