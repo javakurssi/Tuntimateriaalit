@@ -45,11 +45,13 @@ public class TaustatehtavaEsimerkki {
     }
 
     private static void suoritaAikaaVievaTehtava() {
-        try {
-            // Simuloi aikaa vievää tehtävää
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    	 for (int i = 0; i < 5; i++) {
+             System.out.println("Sivusäie työskentelee...");
+             try {
+                 Thread.sleep(500); // Simuloi työtä sivusäikeessä
+             } catch (InterruptedException e) {
+                 e.printStackTrace();
+             }
+         }
     }
 }
