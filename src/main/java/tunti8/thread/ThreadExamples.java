@@ -40,15 +40,16 @@ public class ThreadExamples {
 
         // Esimerkki 6: ExecutorService ja Callable
         int threadCount = 5;
-        ExecutorService executor = Executors.newFixedThreadPool(threadCount);
         List<Callable<Integer>> threads = new ArrayList<>();
 
         for (int i = 0; i < threadCount; i++) {
             threads.add(new IDConsumerCallable(10));
         }
+        
+        ExecutorService executor = Executors.newFixedThreadPool(threadCount);
 
         List<Future<Integer>> futures = executor.invokeAll(threads); // Palautetaan futureja, eli lupaus arvosta tulevaisuudessa.
-
+        		
         int resultId = 0;
         for (Future<Integer> future : futures) {
             resultId = future.get(); // Future palautuu vasta kun Threadin suoritus on valmis, blokkaa pääthreadia siihen asti.

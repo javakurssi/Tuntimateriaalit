@@ -15,7 +15,7 @@ public class TaustatehtavaEsimerkki {
             suoritaAikaaVievaTehtava();
             System.out.println("Taustatehtävä suoritettu: " + Thread.currentThread().getName());
         };
-
+        
         // Luo uusi säie taustatehtävälle
         Thread taustasäie = new Thread(taustatehtava);
 
@@ -45,7 +45,7 @@ public class TaustatehtavaEsimerkki {
     }
 
     private static void suoritaAikaaVievaTehtava() {
-    	 for (int i = 0; i < 5; i++) {
+    	 for (int i = 0; i < 20; i++) {
              System.out.println("Sivusäie työskentelee...");
              try {
                  Thread.sleep(500); // Simuloi työtä sivusäikeessä
