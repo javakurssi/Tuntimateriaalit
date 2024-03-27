@@ -77,15 +77,15 @@ public class Tunti1 {
         }
 
         // Esimerkkejä merkkijonojen käsittelystä
-        String text = "This is a sample text for demonstration.";
-        String substring = "sample";
-        int index = text.indexOf(substring);
-        System.out.println("Index of \"" + substring + "\" in the text: " + index);
-
         String str1 = "Hello";
         String str2 = "World";
         String str3 = str1 + ", " + str2;
         System.out.println(str3);
+        
+        String text = "This is a sample text for demonstration.";
+        String substring = "sample";
+        int index = text.indexOf(substring);
+        System.out.println("Index of \"" + substring + "\" in the text: " + index);
 
         String str = "Hello, World!";
         int length = str.length();
