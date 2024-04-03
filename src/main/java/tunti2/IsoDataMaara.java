@@ -17,21 +17,29 @@ public class IsoDataMaara {
         Map<String, Integer> hashMap = createHashMap(dataSize);
         List<String> list = createArrayList(dataSize);
 
-        // Measure time for HashMap lookup
+        // Mittaa aika hajautustaululle containsKey hakuun
         long startTimeHashMap = System.currentTimeMillis();
         boolean containsKeyHashMap = hashMap.containsKey("5000000");
         long endTimeHashMap = System.currentTimeMillis();
         System.out.println("HashMap containsKey: " + containsKeyHashMap);
         System.out.println("HashMap search time: " + (endTimeHashMap - startTimeHashMap) + " milliseconds");
 
-        // Measure time for ArrayList contains
+        // Mittaa aika ArrayListille contains hakuun
         long startTimeList = System.currentTimeMillis();
         boolean containsList = list.contains("5000000");
         long endTimeList = System.currentTimeMillis();
         System.out.println("ArrayList contains: " + containsList);
         System.out.println("ArrayList search time: " + (endTimeList - startTimeList) + " milliseconds");
+        
+        //Käytännössä ArrayList contains tekee siis tämän, eli käy keskimäärin puolet listasta läpi löytääkseen vastauksen:
+        for (String numero: list) {
+            if (numero.equals("5000000")) {
+                break;
+            }
+        }
     }
 
+    //Luodaan satunnaisia numeroarvoja sisältävä hajautustaulu
     private static Map<String, Integer> createHashMap(int dataSize) {
         Map<String, Integer> hashMap = new HashMap<>(dataSize);
         Random random = new Random();
@@ -42,6 +50,7 @@ public class IsoDataMaara {
         return hashMap;
     }
 
+    //Luodaan satunnaisia numeroarvoja sisältävä Lista
     private static List<String> createArrayList(int dataSize) {
         List<String> list = new ArrayList<>(dataSize);
         Random random = new Random();
