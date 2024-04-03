@@ -38,7 +38,7 @@ public class Tunti2 {
         System.out.println("2. Opintopisteet swd1tn002: " + pisteet); // 5
         
         Integer pisteetFeikki = opintopisteet.getOrDefault("feikkikurssi", 0);
-        System.out.println("2.1. Opintopisteet feikkikurssi: " + pisteetFeikki); // 5
+        System.out.println("2.1. Opintopisteet feikkikurssi: " + pisteetFeikki); // 0
 
         // 3. Uuden arvon asettaminen
         Map<String, String> numerot = new HashMap<>();
@@ -76,27 +76,31 @@ public class Tunti2 {
         maat.put("Suomi", fi);
         maat.put("Ruotsi", sv);
 
-        System.out.println("4. Maat:" + maat);
+        System.out.println("5. Maat:" + maat);
+        
+        fi.add("Tampere");
+        System.out.println("5.1. Maat, Tampere mukana:" + maat);
 
         // 6. Map:in koko sisällön läpikäynti
         Set<String> avaimet = numerot.keySet();
-
+        
         // Käydään läpi kaikki avaimet:
         for (String avain : avaimet) {
             System.out.println("6.1 avain: " + avain);
         }
 
         Collection<String> arvot = numerot.values();
-
+        
         // Käydään läpi kaikki arvot:
         for (String arvo : arvot) {
             System.out.println("6.3 arvo: " + arvo);
         }
         
         // Käydään läpi kaikki avain-arvo -parit:
-        for (Entry<String, String> numero : numerot.entrySet()) {
-        System.out.println("Avain: " + numero.getKey());
-        System.out.println("Arvo: " + numero.getValue());
+        // Set<Entry<String, String>> entrySet = numerot.entrySet();
+        for (Entry<String, String> avainArvoPari : numerot.entrySet()) {
+	        System.out.println("Avain: " + avainArvoPari.getKey());
+	        System.out.println("Arvo: " + avainArvoPari.getValue());
         }
 
     }
