@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 /*
@@ -35,6 +36,9 @@ public class Tunti2 {
         // Haetaan yksi arvo:
         int pisteet = opintopisteet.get("swd1tn002");
         System.out.println("2. Opintopisteet swd1tn002: " + pisteet); // 5
+        
+        Integer pisteetFeikki = opintopisteet.getOrDefault("feikkikurssi", 0);
+        System.out.println("2.1. Opintopisteet feikkikurssi: " + pisteetFeikki); // 5
 
         // 3. Uuden arvon asettaminen
         Map<String, String> numerot = new HashMap<>();
@@ -87,6 +91,12 @@ public class Tunti2 {
         // Käydään läpi kaikki arvot:
         for (String arvo : arvot) {
             System.out.println("6.3 arvo: " + arvo);
+        }
+        
+        // Käydään läpi kaikki avain-arvo -parit:
+        for (Entry<String, String> numero : numerot.entrySet()) {
+        System.out.println("Avain: " + numero.getKey());
+        System.out.println("Arvo: " + numero.getValue());
         }
 
     }

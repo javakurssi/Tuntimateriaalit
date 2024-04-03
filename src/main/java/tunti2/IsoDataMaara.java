@@ -33,7 +33,7 @@ public class IsoDataMaara {
     }
 
     private static Map<String, Integer> createHashMap(int dataSize) {
-        Map<String, Integer> hashMap = new HashMap<>();
+        Map<String, Integer> hashMap = new HashMap<>(dataSize);
         Random random = new Random();
         for (int i = 0; i < dataSize; i++) {
             String key = String.valueOf(random.nextInt(dataSize));
@@ -43,7 +43,7 @@ public class IsoDataMaara {
     }
 
     private static List<String> createArrayList(int dataSize) {
-        List<String> list = new ArrayList<>();
+        List<String> list = new ArrayList<>(dataSize);
         Random random = new Random();
         for (int i = 0; i < dataSize; i++) {
             String key = String.valueOf(random.nextInt(dataSize));
