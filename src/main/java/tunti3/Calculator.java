@@ -18,10 +18,15 @@ public class Calculator {
         if (b == 0) {
             throw new IllegalArgumentException("Cannot divide by zero");
         }
-        return (double) a / b;
+        return a / b;
     }
     
     public String addWithCurrency(int a, int b) {
         return (a + b) + " €";
+    }
+    
+    public static void main(String[] args) {
+    	Calculator calc = new Calculator();
+    	System.out.println("5/2 = "+calc.divide(5, 2));
     }
 }
