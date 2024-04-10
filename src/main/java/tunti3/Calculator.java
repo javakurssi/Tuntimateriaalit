@@ -6,10 +6,6 @@ public class Calculator {
         return a + b;
     }
     
-    public String addWithCurrency(int a, int b) {
-        return (a + b) + " €";
-    }
-
     public int subtract(int a, int b) {
         return a - b;
     }
@@ -25,7 +21,7 @@ public class Calculator {
         return (double) a / b;
     }
     
-    public int square(int a) {
-        return multiply(a, a);
+    public String addWithCurrency(int a, int b) {
+        return (a + b) + " €";
     }
 }

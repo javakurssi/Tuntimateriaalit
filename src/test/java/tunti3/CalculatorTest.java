@@ -19,10 +19,17 @@ class CalculatorTest {
     }
 
     @Test
-    void testAddition() {
+    void testAdditionBasic() {
         assertEquals(5, calculator.add(2, 3));
-
+    }
+    
+    @Test
+    void testAdditionWithNegative() {
         assertEquals(-1, calculator.add(-2, 1));
+    }
+    
+    @Test
+    void testAdditionWithZero() {
         assertEquals(0, calculator.add(0, 0));
     }
 
@@ -32,27 +39,42 @@ class CalculatorTest {
     }
 
     @Test
-    void testSubtraction() {
+    void testSubtractionBasic() {
         assertEquals(1, calculator.subtract(4, 3));
-        assertEquals(5, calculator.subtract(10, 5));
+    }
+    
+    @Test
+    void testSubtractionWhenResultNegative() {
         assertEquals(-2, calculator.subtract(1, 3));
     }
 
     @Test
-    void testMultiplication() {
+    void testMultiplicationBasic() {
         assertEquals(6, calculator.multiply(2, 3));
+    }
+    
+    @Test
+    void testMultiplicationWithNegative() {
         assertEquals(-15, calculator.multiply(3, -5));
+    }
+    
+    @Test
+    void testMultiplicationWithZero() {
         assertEquals(0, calculator.multiply(0, 10));
     }
 
     @Test
-    void testDivision() {
+    void testDivisionBasic() {
     	assertEquals(3, calculator.divide(6, 2), 0.001);
+    }
+    
+    @Test
+    void testDivisionWithNegative() {
         assertEquals(-2.0, calculator.divide(10, -5), 0.001);
     }
     
     @Test
-    void testDivisionWhenResultIsDouble() {
+    void testDivisionWhenResultIsNotInteger() {
     	assertEquals(2.5, calculator.divide(5, 2), 0.001);
     }
 
@@ -60,13 +82,6 @@ class CalculatorTest {
     void testDivisionByZero() {
         //NOTE: () -> calculator.divide(6, 0) -syntax is a lambda expression representing a Runnable
         assertThrows(IllegalArgumentException.class, () -> calculator.divide(6, 0));
-    }
-    
-    @Test
-    void testSquaring() {
-        assertEquals(4, calculator.square(2));
-        assertEquals(4, calculator.square(-2));
-        assertEquals(0, calculator.square(0));
     }
     
     //Examples on different asserting methods
