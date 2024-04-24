@@ -2,6 +2,9 @@ package tunti5;
 
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -65,9 +68,12 @@ public class PerusFunktionaalisenEsimerkit {
     }
     
     private static int laskeKaupunkienAsukasluvutStream(List<Kaupunki> kaupungit) {
+    	//Tämän esimerkin funktioiden tyypit havainnollistettu alla (ks. https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/package-summary.html)
+    	//Predicate<Boolean> predicate = kaupunki -> kaupungit.get(0).getAsukasluku() > 100_000;
+    	//ToIntFunction<Kaupunki> func = Kaupunki::getAsukasluku;
         return kaupungit.stream()
-                .filter(kaupunki -> kaupunki.getAsukasluku() > 100_000)
-                .mapToInt(Kaupunki::getAsukasluku)
+                .filter((Kaupunki kaupunki) -> {return kaupunki.getAsukasluku() > 100_000;})
+                .mapToInt(Kaupunki::getAsukasluku) // Double colon method reference (ks. esim https://www.geeksforgeeks.org/double-colon-operator-in-java/)
                 .sum();
     }
 }

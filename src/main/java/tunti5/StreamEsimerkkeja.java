@@ -46,7 +46,7 @@ public class StreamEsimerkkeja {
     // Esimerkki 1: Käytetään Streameja ja Lambdoja merkkijonojen pituuden selvittämiseen
     public static List<Integer> getMerkkijonojenPituudet(List<String> strings) {
         return strings.stream()
-                .map(String::length) // Double colon method reference (ks. esim https://www.geeksforgeeks.org/double-colon-operator-in-java/)
+                .map(String::length)
                 .collect(Collectors.toList()); // Kerätään tulokset streamista collect-metodilla ja toList-collectorilla.
     }
     
