@@ -22,9 +22,9 @@ public class BubbleSort {
                     arr[j + 1] = temp;
 
                     // Tulosta väliaikainen tulos
-                    tulostaTaulukko(arr);
                 }
             }
+            tulostaTaulukko(arr);
         }
     }
 
@@ -38,7 +38,7 @@ public class BubbleSort {
 
     // Esimerkki käytöstä
     public static void main(String[] args) {
-        int[] jaettavaTaulukko = {64, 34, 25, 90, 12, 22, 11};
+        int[] jaettavaTaulukko = {64, 25, 90, 12, 22, 11};
         
         System.out.println("Alkuperäinen taulukko:");
         tulostaTaulukko(jaettavaTaulukko);
