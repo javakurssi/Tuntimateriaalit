@@ -12,7 +12,7 @@ public class IDConsumerCallable implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
     	IDGeneratorSync idg = IDGeneratorSync.getIDGenerator();
-        System.out.println("Callable starting...");
+        System.out.println("Callable starting: "+Thread.currentThread().getName());
         int id = 0;
 
         for (int i = 0; i < counter; i++) {
