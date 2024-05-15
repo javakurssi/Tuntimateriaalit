@@ -1,4 +1,4 @@
-package tunti8.thread;
+package tunti8.thread.apuluokat;
 
 public class IDGeneratorSync {
     private static int id = 0;

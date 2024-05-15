@@ -6,6 +6,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import tunti5.apuluokat.Kaupunki;
@@ -23,7 +24,7 @@ public class PerusFunktionaalisenEsimerkit {
 
         List<Integer> numerot = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
-        // Esimerkki 2. Käytetään Streamia ja lambdalauseketta parittaisten numeroiden suodattamiseen
+        // Esimerkki 2. Käytetään Streamia ja lambdalauseketta parittomien numeroiden suodattamiseen
         List<Integer> parillisetNumerot = numerot.stream()
                 .filter(n -> n % 2 == 0)
                 .collect(Collectors.toList()); // Stream pitää "kerätä", jotta se oikeasti "suoritetaan" eli evaluoidaan.

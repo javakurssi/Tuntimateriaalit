@@ -39,6 +39,10 @@ public class StreamEsimerkkeja {
         stringCountMap.forEach((key, value) -> System.out.println(key + ": " + value));
         
         // Esimerkki 5:
+        //<ul>
+        //<li>Pekka</li>
+        //<li>Maija</li>
+        ///</ul>
         String htmlLista = luoHtmlLista(henkilot);
         System.out.println("HTML Lista:\n" + htmlLista);
     }

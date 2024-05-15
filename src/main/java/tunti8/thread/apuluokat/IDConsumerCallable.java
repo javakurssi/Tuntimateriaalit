@@ -1,4 +1,4 @@
-package tunti8.thread;
+package tunti8.thread.apuluokat;
 
 import java.util.concurrent.Callable;
 

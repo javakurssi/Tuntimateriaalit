@@ -4,7 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 
-public class ThreadExamples {
+import tunti8.thread.apuluokat.IDConsumerCallable;
+import tunti8.thread.apuluokat.IDGenerator;
+import tunti8.thread.apuluokat.IDGeneratorSync;
+
+/**
+ * Perusesimerkkejä säikeisiin liittyen
+ */
+public class ThreadEsimerkkeja {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         // Esimerkki 1: Singleton-luokka (IDGenerator), ei liity suoraan Threadeihin.
         IDGenerator idg = IDGenerator.getIDGenerator();
@@ -32,36 +39,6 @@ public class ThreadExamples {
             }
         }
         System.out.println("Säie 3 päättynyt");
-        
-        // Esimerkki 5: Kriittisen alueen synkronointi (IDGenerator)
-        IDGeneratorSync idgSync = IDGeneratorSync.getIDGenerator();
-        int syncedId = idgSync.nextID();
-        System.out.println("Synkronoitu ID: " + syncedId);
-
-        // Esimerkki 6: ExecutorService ja Callable
-        int threadCount = 5;
-        List<Callable<Integer>> threads = new ArrayList<>();
-
-        for (int i = 0; i < threadCount; i++) {
-            threads.add(new IDConsumerCallable(10));
-        }
-        
-        ExecutorService executor = Executors.newFixedThreadPool(threadCount);
-
-        List<Future<Integer>> futures = executor.invokeAll(threads); // Palautetaan futureja, eli lupaus arvosta tulevaisuudessa.
-        		
-        int resultId = 0;
-        for (Future<Integer> future : futures) {
-            resultId = future.get(); // Future palautuu vasta kun Threadin suoritus on valmis, blokkaa pääthreadia siihen asti.
-            System.out.println("ID säikeen päättyessä: " + resultId);
-        }
-        // Executorin sulkeminen
-        executor.shutdown();
-        
-        //Tarkistetaan Singleton IDGeneratorin lopputulos, jota eri säikeet ovat muokanneet.
-        IDGeneratorSync idGenerator = IDGeneratorSync.getIDGenerator();
-        int finalId = idGenerator.getLastId();
-        System.out.println("Lopullinen ID: " + finalId);
     }
 }
 
