@@ -15,6 +15,8 @@ public class Tunti1 {
         // Esimerkkejä kontrollirakenteista
         if (isJavaFun) {
             System.out.println("Java is fun!");
+        } else if(number == 43) {
+            System.out.println("Java is also fun!");
         } else {
             System.out.println("Java is not fun?");
         }
@@ -66,7 +68,7 @@ public class Tunti1 {
 
         // Esimerkkejä olio-ohjelmoinnin perusteista
         Animal animal = new Animal("Elephant", 25);
-        System.out.println("Person: " + animal.getName() + ", Age: " + animal.getWeight());
+        System.out.println("Name: " + animal.getName() + ", Age: " + animal.getWeight());
 
         // Esimerkkejä poikkeuskäsittelystä
         try {
