@@ -19,19 +19,19 @@ public class IsoDataMaara {
 
         // Mittaa aika hajautustaululle containsKey hakuun
         long startTimeHashMap = System.currentTimeMillis();
-        boolean containsKeyHashMap = hashMap.containsKey("5000000");
+        boolean containsKeyHashMap = hashMap.containsKey("arvo_jota_ei_loydy");
         long endTimeHashMap = System.currentTimeMillis();
         System.out.println("HashMap containsKey: " + containsKeyHashMap);
         System.out.println("HashMap search time: " + (endTimeHashMap - startTimeHashMap) + " milliseconds");
 
         // Mittaa aika ArrayListille contains hakuun
         long startTimeList = System.currentTimeMillis();
-        boolean containsList = list.contains("5000000");
+        boolean containsList = list.contains("arvo_jota_ei_loydy");
         long endTimeList = System.currentTimeMillis();
         System.out.println("ArrayList contains: " + containsList);
         System.out.println("ArrayList search time: " + (endTimeList - startTimeList) + " milliseconds");
         
-        //Käytännössä ArrayList contains tekee siis tämän, eli käy keskimäärin puolet listasta läpi löytääkseen vastauksen:
+        //Käytännössä ArrayList contains tekee siis tämän, eli käy tarvittaessa koko listan läpi löytääkseen vastauksen:
         for (String numero: list) {
             if (numero.equals("5000000")) {
                 break;
