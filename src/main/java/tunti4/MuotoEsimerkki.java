@@ -1,7 +1,8 @@
 package tunti4;
 
 /**
- * Tämä esimerkki havainnollistaa olio-ohjelmoinnin käsitteitä Abstrakti-luokka ja super-avainsana.
+ * Tämä esimerkki havainnollistaa olio-ohjelmoinnin käsitteitä Abstrakti-luokka, super- ja instanceof 
+ * -avainsanat.
  */
 public class MuotoEsimerkki {
 	public static void main(String[] args) {
@@ -13,6 +14,10 @@ public class MuotoEsimerkki {
 
 		System.out.println("Ympyrä tulostettuna: " + ympyra);
 		System.out.println("Suorakulmio tulostettuna: " + suorakulmio);
+		
+		if(ympyra instanceof Ympyra) { // palauttaa tosi jos ympyra on luokan Ympyra ilmentymä
+			System.out.println("Ympyrä on todella ympyrä");
+		}
 	}
 }
 
