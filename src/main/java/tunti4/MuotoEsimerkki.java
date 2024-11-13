@@ -1,5 +1,9 @@
 package tunti4;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * Tämä esimerkki havainnollistaa olio-ohjelmoinnin käsitteitä Abstrakti-luokka, super- ja instanceof 
  * -avainsanat.
@@ -15,18 +19,44 @@ public class MuotoEsimerkki {
 		System.out.println("Ympyrä tulostettuna: " + ympyra);
 		System.out.println("Suorakulmio tulostettuna: " + suorakulmio);
 		
-		if(ympyra instanceof Ympyra) { // palauttaa tosi jos ympyra on luokan Ympyra ilmentymä
+		if (ympyra instanceof Ympyra) {
 			System.out.println("Ympyrä on todella ympyrä");
 		}
+		
+		// Verrataan muotoja
+		AbstraktiMuoto aYmpyra = (AbstraktiMuoto) ympyra;
+		AbstraktiMuoto aSuorakulmio = (AbstraktiMuoto) suorakulmio;
+		
+		int comparisonResult = aYmpyra.compareTo(aSuorakulmio);
+		if (comparisonResult < 0) {
+			System.out.println("Ympyrä has a smaller area than Suorakulmio.");
+		} else if (comparisonResult > 0) {
+			System.out.println("Ympyrä has a larger area than Suorakulmio.");
+		} else {
+			System.out.println("Ympyrä and Suorakulmio have the same area.");
+		}
+		
+	    List<AbstraktiMuoto> muodot = new ArrayList<>();
+	    muodot.add(aYmpyra);
+	    muodot.add(aSuorakulmio);
+	     
+	    // Järjestetään Collections.sort:in avulla pienimmästä suurimpaan
+	    Collections.sort(muodot);
+	    
+		System.out.println("Muodot järjestyksessä: ");
+
+        for (AbstraktiMuoto muoto : muodot) {
+            System.out.println(muoto.laskePintaAla());
+        }
+	     
 	}
 }
 
 interface Muoto {
-	public double laskePintaAla();
+	double laskePintaAla();
 }
 
-// Abstrakti luokka, joka toteuttaa Muoto-rajapinnan
-abstract class AbstraktiMuoto implements Muoto {
+abstract class AbstraktiMuoto implements Muoto, Comparable<AbstraktiMuoto> {
 	private int laskuri;
 	
 	public AbstraktiMuoto() {
@@ -37,9 +67,10 @@ abstract class AbstraktiMuoto implements Muoto {
 		laskuri++;
 	}
 	
+	@Override
 	public double laskePintaAla() {
 		kasvataLaskuria();
-		return Math.PI; // Oletustoteutus abstraktissa luokassa
+		return Math.PI;
 	}
 	
 	public int getLaskurinSumma() {
@@ -48,7 +79,13 @@ abstract class AbstraktiMuoto implements Muoto {
 	
 	@Override
 	public String toString() {
-		return "Laskettu: "+laskuri+" kertaa. \n\n";
+		return "Laskettu: " + laskuri + " kertaa. \n\n";
+	}
+	
+	// Comparable toteutus pinta-alan perusteella
+	@Override
+	public int compareTo(AbstraktiMuoto other) {
+		return Double.compare(this.laskePintaAla(), other.laskePintaAla());
 	}
 }
 
@@ -56,7 +93,7 @@ class Ympyra extends AbstraktiMuoto {
 	private double sade;
 
 	public Ympyra(double sade) {
-		super(); // Kutsutaan AbstraktiMuoto construktoria
+		super();
 		this.sade = sade;
 	}
 
@@ -92,5 +129,4 @@ class Suorakulmio extends AbstraktiMuoto {
 	public String toString() {
 		return super.toString() + "Leveys: " + leveys + " Korkeus: " + korkeus;
 	}
-	
 }
