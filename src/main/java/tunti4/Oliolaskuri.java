@@ -8,7 +8,7 @@ package tunti4;
  * toisin kuin imperatiivinen toteutus. Tästä voi myös huomata, että ongelman
  * mallintaminen olioiksi tuottaa aika paljon koodirivejä.
  * 
- * Vrt. FunktionaalinenLaskuri.js ja ImperatiivinenLaskuri.java
+ * Vrt. ImperatiivinenLaskuri.java
  */
 public class Oliolaskuri {
 
