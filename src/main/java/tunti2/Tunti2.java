@@ -23,7 +23,7 @@ public class Tunti2 {
         postinumerot.put("90014", "Oulu");
         postinumerot.put("33720", "Tampere");
         postinumerot.put("33014", "Tampere");
-
+        
         System.out.println("1. Postinumero 00710: " + postinumerot.get("00710")); // tulostaa "Helsinki"
 
         // 2. Numeroiden käsitteleminen mapissa

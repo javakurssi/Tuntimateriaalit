@@ -33,7 +33,7 @@ public class IsoDataMaara {
         
         //Käytännössä ArrayList contains tekee siis tämän, eli käy tarvittaessa koko listan läpi löytääkseen vastauksen:
         for (String numero: list) {
-            if (numero.equals("5000000")) {
+            if (numero.equals("arvo_jota_ei_loydy")) {
                 break;
             }
         }
