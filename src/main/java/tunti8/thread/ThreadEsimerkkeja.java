@@ -34,17 +34,22 @@ public class ThreadEsimerkkeja {
         // Esimerkki 4: Viive ja säikeiden tilan tarkistus
         while (t3.isAlive()) {
             try {
+                System.out.println("Pääsäie nukkuu");
                 Thread.sleep(100); //Pääsäie odottaa
             } catch (InterruptedException e) {
             }
         }
-        System.out.println("Säie 3 päättynyt");
+        System.out.println("Pääsäie: Säie 3 päättynyt");
     }
 }
 
 class DemoSäie implements Runnable {
     @Override
     public void run() {
+        try {
+            Thread.sleep(200); //Sivusäie odottaa
+        } catch (InterruptedException e) {
+        }
         System.out.println("Luokka ja säiemetodi: " + Thread.currentThread().getName());
     }
 }
