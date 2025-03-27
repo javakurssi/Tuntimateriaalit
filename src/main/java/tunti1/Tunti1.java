@@ -14,7 +14,7 @@ public class Tunti1 {
 
         // Esimerkkejä kontrollirakenteista
         if (isJavaFun) {
-            System.out.println("Java is fun!");
+            System.out.println("Java is very fun!");
         } else if(number == 43) {
             System.out.println("Java is also fun!");
         } else {
