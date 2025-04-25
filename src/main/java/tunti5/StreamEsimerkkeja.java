@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.OptionalDouble;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import static java.util.stream.Collectors.*;
 
@@ -35,8 +36,14 @@ public class StreamEsimerkkeja {
         System.out.println("Henkilöiden keski-ikä: " + keskiIka);
         
         // Esimerkki 4: 
+        System.out.println("laskeEsiintymat: ");
         Map<String, Long> stringCountMap = laskeEsiintymat(automerkit);
         stringCountMap.forEach((key, value) -> System.out.println(key + ": " + value));
+        
+        System.out.println("laskeEsiintymatLuokittelijalla: ");
+        Map<Integer, Long> stringCountMap2 = laskeEsiintymatLuokittelijalla(automerkit, String::length);
+        stringCountMap2.forEach((key, value) -> System.out.println(key + ": " + value));
+        
         
         // Esimerkki 5:
         //<ul>
@@ -56,16 +63,17 @@ public class StreamEsimerkkeja {
     
     // Esimerkki 2: Etsi henkilöä nimellä. Tulos on Optional<Henkilo>, koska henkilöä ei välttämättä löydy.
     public static Optional<Henkilo> findByNimi(List<Henkilo> henkilot, String nimi) {
-        /*for (Henkilo henkilo : henkilot) {
+        for (Henkilo henkilo : henkilot) {
             if (henkilo.getNimi().equals(nimi)) {
                 return Optional.of(henkilo); // Löytyi, kääritään optionaliin.
             }
         }
-        return Optional.empty();*/ // Ei löytynyt, palautetaan tyhjä Optional
+        
+        return Optional.empty(); // Ei löytynyt, palautetaan tyhjä Optional
    
-	    return henkilot.stream()
-	            .filter(henkilo -> henkilo.getNimi().equalsIgnoreCase(nimi))
-	            .findFirst();
+	    /*return henkilot.stream()
+	            .filter(henkilo -> henkilo.getNimi().equals(nimi))
+	            .findFirst();*/
     }
 
     // Esimerkki 3: Käytetään Streameja, Lambdoja ja Optional-luokkaa henkilöiden keski-iän laskemiseen.
@@ -82,6 +90,13 @@ public class StreamEsimerkkeja {
         Map<T, Long> esiintymat = list.stream()
                 .collect(groupingBy(s -> s, counting())); // Käytetään groupingBy-collectoria ja counting-collectoria.
         return esiintymat;
+    }
+    
+    // Esimerkki 4.1: Sama kuin viikolla 4, mutta nyt toteutettu streameilla siten että ottaa classifierin parametrina.
+    // HUOM: Classifierin tyypitys alkaa olla erittäin advanced.
+    private static <T, K> Map<K, Long> laskeEsiintymatLuokittelijalla(List<T> list, Function<? super T, ? extends K> classifier) {
+        return list.stream()
+                .collect(Collectors.groupingBy(classifier, Collectors.counting()));
     }
     
     // Esimerkki 5: Luodaan henkilölistasta html-renderöitävä versio, tämä on helppoa mappauksen avulla ja tyypillistä web-ohjelmoinnissa.
