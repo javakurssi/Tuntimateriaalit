@@ -34,6 +34,8 @@ Tunti 7, Tietorakenteet ja Algoritmit:
 
 - [Tunti7, Wordplay-exercise](https://github.com/ohjelmointi2/wordplay-exercise/)
 
+- [Tunti7, Wordplay-exercise-ratkaisu](./src/main/java/tunti7/NamesInDictionaryRatkaisu.java)
+
 Tunti 8, Säikeet ja rekursio:
 
 - [Tunti8, Säikeet](./src/main/java/tunti8/thread)
